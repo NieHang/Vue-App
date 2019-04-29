@@ -1,0 +1,81 @@
+<template>
+  <div>
+    <div class="title">热销推荐</div>
+    <ul>
+      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+        <img :src="item.imgUrl" class="item-img">
+        <div class="item-info">
+          <p class="item-title">{{item.title}}</p>
+          <p class='item-desc'>{{item.desc}}</p>
+          <button class="item-button">查看详情</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeRecommend',
+  data() {
+    return {
+      recommendList: [
+        {
+          id: '1',
+          imgUrl: 'http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_200x200_8eb33f07.jpg',
+          title: '恭王府',
+          desc: '我想去恭王府看看'
+        },
+        {
+          id: '2',
+          imgUrl: 'http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_200x200_8eb33f07.jpg',
+          title: '恭王府',
+          desc: '我想去恭王府看看'
+        },
+        {
+          id: '3',
+          imgUrl: 'http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_200x200_8eb33f07.jpg',
+          title: '恭王府',
+          desc: '我想去恭王府看看'
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<style lang='stylus' scoped>
+  @import '~styles/mixins.styl'
+  .title
+    margin-top .2rem
+    line-height .8rem
+    background-color #eee
+    text-indent .2rem
+  .item
+    overflow hidden
+    display flex
+    height 1.9rem
+    .item-img
+      width 1.7rem
+      height 1.7rem
+      padding .1rem
+    .item-info
+      flex 1
+      padding .1rem
+      min-width 0
+      .item-title
+        line-height .54rem
+        font-size .32rem
+        ellipsis()
+      .item-desc
+        line-height .4rem
+        color #ccc
+        ellipsis()
+      .item-button
+        line-height .44rem
+        margin-top .16rem
+        background-color #ff9300
+        padding 0 .2rem
+        border-radius .06rem
+        color #fff
+</style>
