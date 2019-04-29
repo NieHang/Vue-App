@@ -47,6 +47,7 @@ module.exports = {
     'eol-last': ['off'],
     'comma-dangle': ['off'],
     'semi': ['off'],
+    'no-console': ['off'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options='swiperOption'>
       <swiper-slide v-for="(page, index) in pages" :key="index">
         <div class="icon" v-for="item in page" :key="item.id">
           <div class="icon-img">
@@ -16,64 +16,14 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data() {
     return {
-      iconList: [
-        {
-          id: '1',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '2',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/27/dac2bcf9added702.png',
-          desc: '海滨海岛'
-        },
-        {
-          id: '3',
-          imgUrl:
-            'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png',
-          desc: '自然风光'
-        },
-        {
-          id: '4',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          desc: '一日游'
-        },
-        {
-          id: '5',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '威海必游'
-        },
-        {
-          id: '6',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/f5/a963333e1fa802.png',
-          desc: '当地好玩'
-        },
-        {
-          id: '7',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/48/cb72b99b71974c02.png',
-          desc: '休闲玩乐'
-        },
-        {
-          id: '8',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/ab/6f7d6e44963c9302.png',
-          desc: '泡温泉'
-        },
-        {
-          id: '9',
-          imgUrl:
-            'http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png',
-          desc: '亲子游'
-        }
-      ]
+      swiperOption: {
+        autoplay: false
+      }
     }
   },
   computed: {

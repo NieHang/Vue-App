@@ -17,29 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data() {
-    return {
-      recommendList: [
-        {
-          id: '1',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_200x200_8eb33f07.jpg',
-          title: '恭王府',
-          desc: '我想去恭王府看看'
-        },
-        {
-          id: '2',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_200x200_8eb33f07.jpg',
-          title: '恭王府',
-          desc: '我想去恭王府看看'
-        },
-        {
-          id: '3',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_200x200_8eb33f07.jpg',
-          title: '恭王府',
-          desc: '我想去恭王府看看'
-        }
-      ]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>
