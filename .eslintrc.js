@@ -49,6 +49,7 @@ module.exports = {
     'semi': ['off'],
     'no-console': ['off'],
     'linebreak-style': ['off'],
+    'no-restricted-syntax': ['off'],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   }
