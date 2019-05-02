@@ -11,6 +11,8 @@
 <script>
 import axios from 'axios'
 
+import { mapState } from 'vuex'
+
 import HomeHeader from './components/Header'
 
 import HomeSwiper from './components/Swiper'
@@ -32,6 +34,7 @@ export default {
   },
   data() {
     return {
+      lastCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
@@ -40,7 +43,8 @@ export default {
   },
   methods: {
     getHomeInfo() {
-      axios.get('/api/index.json').then(this.getHomeInfoSucc)
+      // eslint-disable-next-line
+      axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc(res) {
       if (res.data.ret && res.data.data) {
@@ -53,7 +57,17 @@ export default {
     }
   },
   mounted() {
+    this.lastCity = this.city
     this.getHomeInfo();
+  },
+  activated() {
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo();
+    }
+  },
+  computed: {
+    ...mapState(['city'])
   },
 }
 </script>
