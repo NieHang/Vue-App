@@ -1,13 +1,19 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" src="http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_350x240_3a0fefe8.jpg">
+      <img class="banner-img" :src="bannerImg">
       <div class="banner-info">
-        <div class="banner-title">北京世界园艺博览会</div>
-        <div class="banner-number"><span class="iconfont banner-icon">&#xe68b;</span>39</div>
+        <div class="banner-title">{{this.sightName}}</div>
+        <div class="banner-number">
+          <span class="iconfont banner-icon">&#xe68b;</span>{{this.gallaryImgs.length}}
+        </div>
       </div>
     </div>
-    <common-gallary :imgs='imgs' v-show="showGallary" @close='handleGallaryClose'></common-gallary>
+    <common-gallary
+      :imgs='gallaryImgs'
+      v-show="showGallary"
+      @close='handleGallaryClose'>
+    </common-gallary>
   </div>
 </template>
 
@@ -19,10 +25,14 @@ export default {
   components: {
     CommonGallary
   },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data() {
     return {
-      showGallary: false,
-      imgs: ['http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_350x240_3a0fefe8.jpg', 'http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_350x240_3a0fefe8.jpg']
+      showGallary: false
     }
   },
   methods: {
@@ -67,4 +77,5 @@ export default {
         background rgba(0, 0, 0, .8)
         .banner-icon
           font-size .24rem
+          margin-right .1rem
 </style>

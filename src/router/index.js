@@ -24,4 +24,9 @@ export default new Router({
       component: Detail,
     }
   ],
+  // 防止用户在当前页面下滑到某个位置，进入新的页面时也处于之前页面下滑的位置
+  // eslint-disable-next-line no-unused-vars
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 });
