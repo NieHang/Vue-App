@@ -1,27 +1,25 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/pages/home/Home';
-import City from '@/pages/city/City';
-import Detail from '@/pages/detail/Detail';
 
 Vue.use(Router);
 
+// 异步组件
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Home',
-      component: Home,
+      component: () => import('@/pages/home/Home')
     },
     {
       path: '/city',
       name: 'City',
-      component: City,
+      component: () => import('@/pages/city/City')
     },
     {
       path: '/detail/:id',
       name: 'Detail',
-      component: Detail,
+      component: () => import('@/pages/detail/Detail')
     }
   ],
   // 防止用户在当前页面下滑到某个位置，进入新的页面时也处于之前页面下滑的位置
