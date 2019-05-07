@@ -1,13 +1,14 @@
 <template>
   <div class="header">
     <ul class="list">
+      <!-- touchstart.prevent防止拖动字母表的时候，屏幕也跟着移动 -->
       <li
         class="item"
         v-for="item of letters"
         :key="item"
         :ref="item"
         @click="handleLetterClick"
-        @touchstart="handleTouchStart"
+        @touchstart.prevent="handleTouchStart"
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
       >{{item}}</li>
