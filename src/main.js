@@ -8,6 +8,8 @@ import router from './router';
 // eslint-disable-next-line import/first
 import fastClick from 'fastclick';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
+// 解决低版本安卓出现白屏问题
+import 'babel-polyfill'
 import store from './store'
 import 'styles/reset.css';
 import 'styles/border.css';
